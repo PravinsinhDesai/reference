@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var student=[{name:"", Address:"", hobbies:""}];
+        //var arr=[];
+        function addobj(){
+            name=document.getElementById("name").value;
+            Address=document.getElementById("ad").value;
+            hobbies=document.getElementById("hb").value;
+            st={name,Address,hobbies};
+
+            student.push(st);  
+          
+        }
+        function show(){
+            document.getElementById("mydiv").style.backgroundColor="red";
+             str=""
+            for(var std of student){
+                
+               str+=std.name+" "+std.Address+" "+std.hobbies+"<br/>";
+            }
+            document.getElementById("div1").innerHTML=str; 
+            document.getElementById("div1").innerHTML.value=""                
+        }
+        function changeclr(){
+            document.getElementById("name").style.backgroundColor="yellow";
+        }
+        function change(){
+            document.getElementById("name").style.backgroundColor="white";
+      
+            if( document.getElementById("name").value.length>6){
+
+                alert("max length should be 6")
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="mydiv" style="background-color: aqua; border: 2px; align-self: center; margin: auto; height: 500px;width: 500px;">
+        <table >
+            <form onsubmit="addobj()">
+                <tr style="height: 50px;">
+                    <td>Name:</td>
+                    <td><input type="text" name="name" id="name" onfocus="changeclr()" onblur="change()"  /></td>
+                </tr>
+                <tr></tr>
+                <tr style="height: 50px;">
+                    <td>Adress:</td>
+                    <td><input type="text" name="ad" id="ad"/></td>
+                </tr><br>
+                <tr></tr>
+                <tr style="height: 50px;">
+                    <td>Hobbies:</td>
+                    <td><input type="text" name="hb" id="hb"/></td>
+                </tr>
+                <tr></tr>
+                <tr style="height: 50px;">
+                    <td><button type="button" name="btn" onclick="addobj()">Add Object</button></td>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<td><button type="button" name="btn1" onclick="show()">Display Object</button></td>
+                </tr>
+                <tr></tr>
+            </form>
+        </table>
+        <div id="div1"></div>
+        </div>    
+        
+</body>
+</html>
